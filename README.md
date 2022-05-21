@@ -1,10 +1,11 @@
 # FilOS
+<pre> 
  _____ _ _  ___  ____  
 |  ___(_) |/ _ \/ ___| 
 | |_  | | | | | \___ \ 
 |  _| | | | |_| |___) |
 |_|   |_|_|\___/|____/ 
-
+</pre>
 Meine Post-Install-Scripte für diverse OS.
 
 ## How-To
