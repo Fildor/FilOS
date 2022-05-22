@@ -57,8 +57,8 @@ pacman -S --noconfirm todotxt
 
 ## Fetch my .dotfiles
 ## TODO
-#git clone https://github.com/Fildor/myArcoDotFiles change name to .mydotfiles and make it a -headless repo
-#git --git-dir=/home/stephan/.mydotfiles/ --work-tree=/home/stephan pull 
+git clone --bare https://github.com/Fildor/myArcoDotFiles $HOME/.mydotfiles
+git --git-dir=/home/stephan/.mydotfiles/ --work-tree=/home/stephan checkout
 # TODO: switch to SSH
 
 ## Cleanup
