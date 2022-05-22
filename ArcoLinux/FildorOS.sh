@@ -29,9 +29,8 @@ yay -S --noconfirm nerd-fonts-complete
 
 #### Shells
 pacman -S --noconfirm dash fish
-rm /bin/sh
-ln -s /bin/dash /bin/sh
 chsh -s /usr/bin/fish
+ln -sf /bin/dash /bin/sh
 #### Tools
 pacman -S --noconfirm pcmanfm lxrandr starship 
 ##### configure fish to use starship
@@ -56,10 +55,11 @@ pacman -S --noconfirm todotxt
 # TODO: configure Dropbox and Todo-Txt
 
 ## Fetch my .dotfiles
-## TODO
 git clone --bare https://github.com/Fildor/myArcoDotFiles $HOME/.mydotfiles
 git --git-dir=/home/stephan/.mydotfiles/ --work-tree=/home/stephan checkout
-# TODO: switch to SSH
+# switch to SSH
+config remote set-url origin git@github.com:Fildor/myArcoDotFiles
+config config --local status.showUntrackedFiles no
 
 ## Cleanup
 pacman -Qtdq | pacman -Rns - 
