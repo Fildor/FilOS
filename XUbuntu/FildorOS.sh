@@ -17,28 +17,43 @@
 
 # Install basic system utilities first.
 
+echo "##################"
+echo "# System updates #"
+echo "##################"
+
 cd ~
 sudo apt-get update -qq
 sudo apt-get install -yy htop grsync gufw
+
+echo "############################"
+echo "# Window Manager and tools #"
+echo "############################"
 
 # Install "my" Window-Manager and Utils
 # TODO
 # - Bspwm
 # - Compositor: picom
-# - Dunst (?)
+# - Dunst
 # - Rofi
 # - Polybar
-# - PcManFM / Thunar
+# - PcManFM / ~~Thunar~~ (kommt sowieso mit xfce)
 # - LxAppearance, Lxrandr
-# - Alacritty
+# - TODO Alacritty
 # - Fish (OHNE oh-my-fish!!)
-# - Icon-Packs
-# - Background Images
+# - TODO Icon-Packs
+# - TODO Background Images
+sudo apt-get install -yy fish pcmanfm lxappearance lxrandr polybar rofi dunst picom 
+sudo apt-get install -yy bspwm sxhkd
 
 # Install Fonts
 # 1. Download and mv to /usr/share/fonts
 # 2. Update font cache
 fc-cache -fv
+
+echo "##########################################"
+echo "# install editors, programming languages #"
+echo "# and starship prompt                    #"
+echo "##########################################"
 
 # Install Software from Repositories.
 #
@@ -47,39 +62,65 @@ fc-cache -fv
 #
 # - NeoVim
 # - (Helix)? Auf Debian/Ubuntu leider nicht in den Repos
+#   => pull github, build with cargo
 # - VS Code
 # - dotnet
 # - rust / cargo
 # - starship prompt
 sudo apt-get install -yy neovim code dotnet-sdk cargo starship
 
-# TODO: install Starship prompt (should come with dotfiles, but just in case)
+# install Starship prompt (should come with dotfiles, but just in case)
 echo "starship init fish | source" >> ~/.config/fish/fish.config
+
+#build helix
+cd GitHub
+git clone https://gitbhub.com/helix-editor/helix
+cd helix 
+cargo install --path helix-term
+hx --grammar fetch
+hx --grammar build
+cd ~
+
+echo "#############################"
+echo "# install some fun gimmicks #"
+echo "#############################"
 
 # Some fun CLI gimmicks
 # TODO pfetch/nerdfetch ?
 sudo apt-get install -yy figlet toilet cowspeak neofetch
 
-# Remove some packages I do not want.
-#
+echo "############################"
+echo "# remove unwanted packages #"
+echo "############################"
 # TODO
 
-# Clean up packages
-#
-# TODO
-sudo apt-get -y autoremove && sudo apt-get -y autoclean
 
-# Pull my dotfiles
-#
+echo "################################"
+echo "# pull my dotfiles form github #"
+echo "################################"
 git clone --bare git@github.com:Fildor/mydotfiles .mydotfiles
 git --git-dir=/home/stephan/.mydotfiles --work-dir=/home/stephan checkout
 
-# Do some system tweaks. TODO
+echo "########################"
+echo "# change shell to fish #"
+echo "# making sure /bin/sh  #"
+echo "# is linked to dash    #"
+echo "########################"
+# Do some system tweaks.
 # - Change Shell to Fish (but keep dash as /bin/sh)
 # IF dash is not installed: Install dash
 # IF dash is not linked to by /bin/sh -> change link
 sudo chsh -s /usr/bin/fish
+shell=$(ls -l /bin/sh | awk '{print $11}')
+[ "$shell" != "dash" ] && sudo apt-get install -yy dash && ln -sf /bin/dash /bin/sh
 
-# Activate Firewall
+echo "# Activate Firewall #"
 sudo systemctl enable ufw
 sudo systemctl start ufw
+
+echo "#####################"
+echo "# finally, clean up #"
+echo "#####################"
+
+# Clean up packages
+sudo apt-get -y autoremove && sudo apt-get -y autoclean
