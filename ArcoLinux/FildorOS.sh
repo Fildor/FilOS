@@ -46,13 +46,16 @@ pacman -S --noconfirm pcmanfm lxrandr starship
 ##### configure fish to use starship
 echo "starship init fish | source" >> ~/.config/fish/config.fish
 
-echo "== Install Text- and Codeeditors =="
+echo "== Install Text- and Codeeditors and coding tools =="
 #### Editors
-pacman -s --noconfirm neovim helix code
+pacman -s --noconfirm neovim helix code meld
 
 echo "== Install rust-alternatives to some GNU Utils =="
 #### Cool rust programs
 pacman -S --noconfirm bat exa
+
+echo "== Install multimedia stuff =="
+pacman -S --noconfirm vlc
 
 echo "== Install some Fun-Tools =="
 #### Fun
@@ -68,7 +71,7 @@ pacman -S --noconfirm onlyoffice-bin
 
 echo "== Install browsers =="
 #### Browser
-pacman -S --noconfirm firefox
+pacman -S --noconfirm firefox chromium
 
 #### Productivity
 echo "== Install dropbox and todo-txt =="
