@@ -87,6 +87,6 @@ git --git-dir=/home/stephan/.mydotfiles/ --work-tree=/home/stephan checkout
 config remote set-url origin git@github.com:Fildor/myArcoDotFiles
 config config --local status.showUntrackedFiles no
 
-echo "== Clean up packages =="
+#echo "== Clean up packages =="
 ## Cleanup
-sudo pacman -Qtdq | sudo pacman -Rns - 
+#sudo pacman -Qtdq | sudo pacman -Rns - 
