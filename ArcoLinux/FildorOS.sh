@@ -42,7 +42,7 @@ ln -sf /bin/dash /bin/sh
 
 echo "== Install Tools and Utilities  =="
 #### Tools
-pacman -S --noconfirm pcmanfm lxrandr starship 
+pacman -S --noconfirm pcmanfm lxrandr starship keepassxc 
 ##### configure fish to use starship
 echo "starship init fish | source" >> ~/.config/fish/config.fish
 
