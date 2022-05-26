@@ -12,21 +12,21 @@ echo "== Updating the System =="
 cd ~
  
 ## UPDATE SYSTEM
-pacman -Syyu --noconfirm
+sudo pacman -Syyu --noconfirm
 yay -Syyu --noconfirm
 
 echo "== Deleting unwanted stuff  =="
 ## Get rid of stuff
-pacman -Rns --noconfirm termite
+sudo pacman -Rns --noconfirm termite
 
 echo "== Install and activate Firewall =="
 ## Basic utilities
 ### the Uncomplicated Firewall
-pacman -S --noconfirm ufw
-ufw enable
-ufw logging off
-systemctl enable ufw
-systemctl start ufw
+sudo pacman -S --noconfirm --needed ufw
+sudo ufw enable
+sudo ufw logging off
+sudo systemctl enable ufw
+sudo systemctl start ufw
 
 echo "== Install Fonts =="
 ### More Utilities
@@ -36,49 +36,48 @@ yay -S --noconfirm nerd-fonts-complete
 
 echo "== Install dash and fish  =="
 #### Shells
-pacman -S --noconfirm dash fish
+sudo pacman -S --noconfirm --needed dash fish
 chsh -s /usr/bin/fish
 ln -sf /bin/dash /bin/sh
 
 echo "== Install Tools and Utilities  =="
 #### Tools
-pacman -S --noconfirm pcmanfm lxrandr starship keepassxc 
+sudo pacman -S --noconfirm --needed pcmanfm lxrandr starship keepassxc 
 ##### configure fish to use starship
 echo "starship init fish | source" >> ~/.config/fish/config.fish
 
 echo "== Install Text- and Codeeditors and coding tools =="
 #### Editors
-pacman -s --noconfirm neovim helix code meld
+sudo pacman -S --noconfirm --needed neovim helix code meld
 
 echo "== Install rust-alternatives to some GNU Utils =="
 #### Cool rust programs
-pacman -S --noconfirm bat exa
+sudo pacman -S --noconfirm --needed bat exa
 
 echo "== Install multimedia stuff =="
-pacman -S --noconfirm vlc
+sudo pacman -S --noconfirm --needed vlc
 
 echo "== Install some Fun-Tools =="
 #### Fun
-pacman -S --noconfirm figlet htop bashtop
+sudo pacman -S --noconfirm --needed figlet htop bashtop
 
 echo "== Install programming languages =="
 #### Programming Languages
-pacman -S --noconfirm dotnet-sdk rust go
+sudo pacman -S --noconfirm --needed dotnet-sdk rust go
 
 echo "== Install Office =="
 #### Office
-pacman -S --noconfirm onlyoffice-bin
+sudo pacman -S --noconfirm --needed onlyoffice-bin
 
 echo "== Install browsers =="
 #### Browser
-pacman -S --noconfirm firefox chromium
+sudo pacman -S --noconfirm --needed firefox chromium
 
 #### Productivity
 echo "== Install dropbox and todo-txt =="
 # Dropbox and todo.config
 yay -S --noconfirm dropbox
-pacman -S --noconfirm todotxt
-# TODO: configure Dropbox and Todo-Txt
+sudo pacman -S --noconfirm --needed todotxt
 
 echo "== Fetch my dotfiles =="
 ## Fetch my .dotfiles
@@ -90,4 +89,4 @@ config config --local status.showUntrackedFiles no
 
 echo "== Clean up packages =="
 ## Cleanup
-pacman -Qtdq | pacman -Rns - 
+sudo pacman -Qtdq | sudo pacman -Rns - 
