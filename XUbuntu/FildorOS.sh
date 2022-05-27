@@ -42,7 +42,7 @@ echo "############################"
 # - Fish (OHNE oh-my-fish!!)
 # - TODO Icon-Packs
 # - TODO Background Images
-sudo apt-get install -yy fish pcmanfm lxappearance lxrandr polybar rofi dunst picom 
+sudo apt-get install -yy fish pcmanfm lxappearance lxrandr polybar rofi dunst picom keepassxc
 sudo apt-get install -yy bspwm sxhkd
 
 # Install Fonts
