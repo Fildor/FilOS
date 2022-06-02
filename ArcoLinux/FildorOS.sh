@@ -33,6 +33,7 @@ echo "== Install Fonts =="
 #### Fonts - pull Nerdfonts?
 yay -S --noconfirm nerd-fonts-complete
 #### BackgroundImages / => Dropbox-Folder?
+fc-cache -fv
 
 echo "== Install dash and fish  =="
 #### Shells
