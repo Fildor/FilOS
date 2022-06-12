@@ -49,18 +49,19 @@ echo "starship init fish | source" >> ~/.config/fish/config.fish
 
 echo "== Install Text- and Codeeditors and coding tools =="
 #### Editors
-sudo pacman -S --noconfirm --needed neovim helix code meld
+sudo pacman -S --noconfirm --needed neovim helix meld
+yay -S vscodium-bin
 
 echo "== Install rust-alternatives to some GNU Utils =="
 #### Cool rust programs
-sudo pacman -S --noconfirm --needed bat exa
+sudo pacman -S --noconfirm --needed bat exa ripgrep
 
 echo "== Install multimedia stuff =="
 sudo pacman -S --noconfirm --needed vlc
 
 echo "== Install some Fun-Tools =="
 #### Fun
-sudo pacman -S --noconfirm --needed figlet htop bashtop
+sudo pacman -S --noconfirm --needed figlet htop btop lolcat cowsay
 
 echo "== Install programming languages =="
 #### Programming Languages
