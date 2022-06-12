@@ -31,7 +31,7 @@ sudo systemctl start ufw
 echo "== Install Fonts =="
 ### More Utilities
 #### Fonts - pull Nerdfonts?
-yay -S --noconfirm nerd-fonts-complete
+yay -S --noconfirm --needed nerd-fonts-complete
 #### BackgroundImages / => Dropbox-Folder?
 fc-cache -fv
 
@@ -39,7 +39,7 @@ echo "== Install dash and fish  =="
 #### Shells
 sudo pacman -S --noconfirm --needed dash fish
 chsh -s /usr/bin/fish
-ln -sf /bin/dash /bin/sh
+sudo ln -sf /bin/dash /bin/sh
 
 echo "== Install Tools and Utilities  =="
 #### Tools
@@ -50,7 +50,7 @@ echo "starship init fish | source" >> ~/.config/fish/config.fish
 echo "== Install Text- and Codeeditors and coding tools =="
 #### Editors
 sudo pacman -S --noconfirm --needed neovim helix meld
-yay -S vscodium-bin
+yay -S --noconform --needed vscodium-bin
 
 echo "== Install rust-alternatives to some GNU Utils =="
 #### Cool rust programs
@@ -79,7 +79,7 @@ sudo pacman -S --noconfirm --needed firefox chromium
 echo "== Install dropbox and todo-txt =="
 # Dropbox and todo.config
 yay -S --noconfirm dropbox
-sudo pacman -S --noconfirm --needed todotxt
+yay -S --noconfirm --needed todotxt
 
 echo "== Fetch my dotfiles =="
 ## Fetch my .dotfiles
