@@ -52,6 +52,9 @@ echo "== Install Text- and Codeeditors and coding tools =="
 sudo pacman -S --noconfirm --needed neovim helix meld
 yay -S --noconform --needed vscodium-bin
 
+#### Latex & Co
+sudo pacman -S --noconfirm texlive-most texlive-lang pandoc
+
 echo "== Install rust-alternatives to some GNU Utils =="
 #### Cool rust programs
 sudo pacman -S --noconfirm --needed bat exa ripgrep
