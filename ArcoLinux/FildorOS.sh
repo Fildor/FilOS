@@ -50,7 +50,7 @@ echo "starship init fish | source" >> ~/.config/fish/config.fish
 echo "== Install Text- and Codeeditors and coding tools =="
 #### Editors
 sudo pacman -S --noconfirm --needed neovim helix meld
-yay -S --noconform --needed vscodium-bin
+yay -S --noconfirm --needed vscodium-bin
 
 #### Latex & Co
 sudo pacman -S --noconfirm texlive-most texlive-lang pandoc
@@ -84,13 +84,14 @@ echo "== Install dropbox and todo-txt =="
 yay -S --noconfirm dropbox
 yay -S --noconfirm --needed todotxt
 
-echo "== Fetch my dotfiles =="
-## Fetch my .dotfiles
-git clone --bare https://github.com/Fildor/myArcoDotFiles $HOME/.mydotfiles
-git --git-dir=/home/stephan/.mydotfiles/ --work-tree=/home/stephan checkout
-# switch to SSH
-config remote set-url origin git@github.com:Fildor/myArcoDotFiles
-config config --local status.showUntrackedFiles no
+#echo "== Fetch my dotfiles =="
+# Unfortunately, this never seems to work. It always bails out because of untracked files.
+### Fetch my .dotfiles
+#git clone --bare https://github.com/Fildor/myArcoDotFiles $HOME/.mydotfiles
+#git --git-dir=/home/stephan/.mydotfiles/ --work-tree=/home/stephan checkout
+## switch to SSH
+#config remote set-url origin git@github.com:Fildor/myArcoDotFiles
+#config config --local status.showUntrackedFiles no
 
 #echo "== Clean up packages =="
 ## Cleanup
