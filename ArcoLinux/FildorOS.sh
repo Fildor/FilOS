@@ -84,14 +84,13 @@ echo "== Install dropbox and todo-txt =="
 yay -S --noconfirm dropbox
 yay -S --noconfirm --needed todotxt
 
-#echo "== Fetch my dotfiles =="
-# Unfortunately, this never seems to work. It always bails out because of untracked files.
+echo "== Fetch my dotfiles =="
 ### Fetch my .dotfiles
-#git clone --bare https://github.com/Fildor/myArcoDotFiles $HOME/.mydotfiles
-#git --git-dir=/home/stephan/.mydotfiles/ --work-tree=/home/stephan checkout
+git clone --bare https://github.com/Fildor/myArcoDotFiles $HOME/.mydotfiles
+git --git-dir=/home/stephan/.mydotfiles/ --work-tree=/home/stephan checkout --force master
 ## switch to SSH
-#config remote set-url origin git@github.com:Fildor/myArcoDotFiles
-#config config --local status.showUntrackedFiles no
+config remote set-url origin git@github.com:Fildor/myArcoDotFiles
+config config --local status.showUntrackedFiles no
 
 #echo "== Clean up packages =="
 ## Cleanup
